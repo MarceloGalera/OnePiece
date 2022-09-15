@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Character {
@@ -15,17 +16,33 @@ public class Character {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String crew;
 	private BigDecimal bounty;
+	@ManyToOne
+	private Crew crew;
 
-	public Character(Long id, String name, String crew, BigDecimal bounty) {
-		this.id = id;
-		this.name = name;
+	public Crew getCrew() {
+		return crew;
+	}
+
+	public void setCrew(Crew crew) {
 		this.crew = crew;
-		this.bounty = bounty;
 	}
 
 	public Character() {
+	}
+
+	public Character(String name, BigDecimal bounty, Crew crew) {
+		this.name = name;
+		this.bounty = bounty;
+		this.crew = crew;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -34,14 +51,6 @@ public class Character {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getCrew() {
-		return crew;
-	}
-
-	public void setCrew(String crew) {
-		this.crew = crew;
 	}
 
 	public BigDecimal getBounty() {
