@@ -26,15 +26,6 @@ public class Character {
 		this.crew = crew;
 	}
 
-	public Character() {
-	}
-
-	public Character(String name, BigDecimal bounty, String crew) {
-		this.name = name;
-		this.bounty = bounty;
-		this.crew = crew;
-	}
-
 	public Long getId() {
 		return id;
 	}

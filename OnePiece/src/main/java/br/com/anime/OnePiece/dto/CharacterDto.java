@@ -11,21 +11,21 @@ public class CharacterDto {
 	private Long id;
 	private String name;
 	private BigDecimal bounty;
-	private String crewDto;
+	private String crew;
 
 	public CharacterDto(Character character) {
 		this.id = character.getId();
 		this.name = character.getName();
 		this.bounty = character.getBounty();
-		this.crewDto = character.getCrew();
+		this.crew = character.getCrew();
 	}
 
-	public String getCrewDto() {
-		return crewDto;
+	public String getCrew() {
+		return crew;
 	}
 
-	public void setCrewDto(String crewDto) {
-		this.crewDto = crewDto;
+	public void setCrew(String crew) {
+		this.crew = crew;
 	}
 
 	public Long getId() {
