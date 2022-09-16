@@ -18,6 +18,15 @@ public class Character {
 	private BigDecimal bounty;
 	private String crew;
 
+	public Character(String name, BigDecimal bounty, String crew) {
+		this.name = name;
+		this.bounty = bounty;
+		this.crew = crew;
+	}
+
+	public Character() {
+	}
+
 	public String getCrew() {
 		return crew;
 	}
