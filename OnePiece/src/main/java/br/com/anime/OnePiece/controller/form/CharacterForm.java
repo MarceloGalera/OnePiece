@@ -12,7 +12,7 @@ import br.com.anime.OnePiece.repository.CharacterRepository;
 
 public class CharacterForm {
 
-	@NotNull @NotEmpty @Length(min = 2, max = 20)
+	@NotNull @NotEmpty @Length(min = 2, max = 25)
 	private String name;
 	
 	@NotNull
@@ -47,6 +47,16 @@ public class CharacterForm {
 
 	public Character transform(CharacterRepository characterRepository) {
 		return new Character(name, bounty, crew);
+	}
+
+	public Character update(Long id, CharacterRepository characterRepository) {
+		Character character = characterRepository.getReferenceById(id);
+		
+		character.setName(this.name);
+		character.setBounty(this.bounty);
+		character.setCrew(this.crew);
+		
+		return character;
 	}	
 
 }
